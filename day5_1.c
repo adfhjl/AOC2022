@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#if windows
+#define u64 "%I64i"
+#else
+#define u64 "%zu"
+#endif
+
 #define INPUT_SIZE 502
 
 // First attempt: RLFNRTNFB V
@@ -660,7 +666,7 @@ int	main(void)
 	i = 0;
 	while (i < INPUT_SIZE)
 	{
-		printf("[%I64i] Moving %i from %i to %i...\n", i, input[i][0], input[i][1], input[i][2]);
+		printf("["u64"] Moving %i from %i to %i...\n", i, input[i][0], input[i][1], input[i][2]);
 		move(input[i][0], stacks[input[i][1] - 1], stacks[input[i][2] - 1]);
 		i++;
 	}

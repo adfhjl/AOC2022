@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#if windows
+#define u64 "%I64i"
+#else
+#define u64 "%zu"
+#endif
+
 // #define INPUT_SIZE 3
 #define INPUT_SIZE 2500
 
@@ -2545,14 +2551,14 @@ int	main(void)
 	score = 0;
 	while (i < INPUT_SIZE)
 	{
-		printf("You chose %s against elf [%I64i] with %s\n", lookup[(int)input[i][1]], i, lookup[(int)input[i][0]]);
+		printf("You chose %s against elf ["u64"] with %s\n", lookup[(int)input[i][1]], i, lookup[(int)input[i][0]]);
 		score += input[i][1] - ('X' - 1);
 		printf("\t You gained %i score for choosing %s\n", input[i][1] - ('X' - 1), lookup[(int)input[i][1]]);
 		score += match_result(input[i][1], input[i][0]);
-		printf("\t You gained %I64i score for the matchup\n", match_result(input[i][1], input[i][0]));
+		printf("\t You gained "u64" score for the matchup\n", match_result(input[i][1], input[i][0]));
 		i++;
 	}
 	printf(	"Tournament has ended...\n"
-			"You ended with a score of %I64i\n", score);
+			"You ended with a score of "u64"\n", score);
 	return (0);
 }

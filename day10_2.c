@@ -20,18 +20,18 @@ int	main(void)
 	printf(	"---------------------------\n"
 			"Advent of Code 2022: Day 10 Part Two!\n"
 			"---------------------------\n");
-	while (i < INPUT_SIZE)
+	while (i < (int)(sizeof(input) / sizeof(*input)))
 	{
 		// printf("Started cycle %d\n", cycle);
 		if (input[i] != 0)
 		{
-			if (cycle % 40 - 1 == x || cycle % 40 - 1 == x - 1 || cycle % 40 - 1 == x + 1)
+			if ((cycle - 1) % 40 == x || (cycle - 1) % 40 == x - 1 || (cycle - 1) % 40 == x + 1)
 			{
 				printf("#");
 			}
 			else
 			{
-				printf(".");
+				printf(" ");
 			}
 			if (cycle % 40 == 0)
 			{
@@ -40,13 +40,13 @@ int	main(void)
 				printf("\n");
 			}
 			cycle++;
-			if (cycle % 40 - 1 == x || cycle % 40 - 1 == x - 1 || cycle % 40 - 1 == x + 1)
+			if ((cycle - 1) % 40 == x || (cycle - 1) % 40 == x - 1 || (cycle - 1) % 40 == x + 1)
 			{
 				printf("#");
 			}
 			else
 			{
-				printf(".");
+				printf(" ");
 			}
 			if (cycle % 40 == 0)
 			{
@@ -58,13 +58,13 @@ int	main(void)
 		}
 		else
 		{
-			if (cycle % 40 - 1 == x || cycle % 40 - 1 == x - 1 || cycle % 40 - 1 == x + 1)
+			if ((cycle - 1) % 40 == x || (cycle - 1) % 40 == x - 1 || (cycle - 1) % 40 == x + 1)
 			{
 				printf("#");
 			}
 			else
 			{
-				printf(".");
+				printf(" ");
 			}
 			if (cycle % 40 == 0)
 			{
